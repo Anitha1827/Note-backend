@@ -2,10 +2,10 @@ const mongoose = require("mongoose");
 require("dotenv").config();
 
 mongoose.connect(process.env.mongourl, {
-  // useNewUrlParser: true,
-  // useUnifiedTopology: true,
-  serverSelectionTimeoutMS: 5000,
-  socketTimeoutMS: 45000,
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
+  // serverSelectionTimeoutMS: 5000,
+  // socketTimeoutMS: 45000,
 });
 
 const db = mongoose.connection;
