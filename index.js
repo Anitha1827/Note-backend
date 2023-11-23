@@ -7,13 +7,13 @@ require("dotenv").config();
 const port = process.env.PORT;
 const app = express();
 
-const corsOptions = {
-  origin: "https://notestakingwebapplication.netlify.app", // replace with your frontend's URL
-  methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
-  credentials: true, // enable passing of cookies from the frontend
-};
+// const corsOptions = {
+//   origin: "https://notestakingwebapplication.netlify.app", // replace with your frontend's URL
+//   methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
+//   credentials: true, // enable passing of cookies from the frontend
+// };
 
-app.use(cors(corsOptions));
+app.use(cors());
 app.use(express.json());
 
 app.use("/user", userRouter);
