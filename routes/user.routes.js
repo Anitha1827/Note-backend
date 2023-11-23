@@ -69,6 +69,7 @@ userRouter.post("/login", async (req, res) => {
           res.send({
             message: "User logged in successfully",
             token: token,
+            user: user,
             status: 1,
           });
         } else {
@@ -88,6 +89,7 @@ userRouter.post("/login", async (req, res) => {
     }
   } catch (error) {
     // Handle other errors
+    console.log(error);
     res.status(500).send({
       message: "Internal server error: " + error.message,
       status: 0,

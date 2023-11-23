@@ -6,7 +6,7 @@ const { NoteModel } = require("../models/NoteModel.js");
 const noteRouter = express.Router();
 noteRouter.use(authenticator);
 
-noteRouter.get("/", async (req, res) => {
+noteRouter.get("/get/:id", async (req, res) => {
   try {
     const token = req.headers.authorization;
     // Check if the token is present
@@ -32,8 +32,8 @@ noteRouter.get("/", async (req, res) => {
     // Fetch notes for the logged-in user
     // let data = await UserModel.find({ user: userId });
     // console.log(data);
-
-    let data = await NoteModel.find({}); //get usesr id by token, sending token to the perticular authenticator
+    let id = req.params.id;
+    let data = await NoteModel.find({ user: id }); //get usesr id by token, sending token to the perticular authenticator
     console.log("MongoDB Query Result:", data);
 
     if (data !== null) {
